@@ -6,6 +6,10 @@ add_action('wp_enqueue_scripts',function(){
 
 include('cpt/cpt.php');
 
+add_filter( 'orbit_tax_query_params_passing-year', function( $type ){
+  $type = 'name';
+  return $type;
+} );
 
 add_filter('manage_edit-laws_columns', function( $columns ){
 
