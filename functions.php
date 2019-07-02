@@ -4,9 +4,9 @@ add_action('wp_enqueue_scripts',function(){
   wp_enqueue_style('landrights-style', get_stylesheet_directory_uri().'/assets/css/land-rights.css', array('sp-core-style'), '1.0.0' );
 });
 
-include('cpt/laws.php');
+include('cpt/cpt.php');
 
-
+/*
 function wpse_80027_manage_columns($columns) {
 
   $remove_taxonomies = array( 'machine-readable', 'gazetted-copy', 'lang', 'source', 'status', 'nature' );
@@ -18,3 +18,4 @@ function wpse_80027_manage_columns($columns) {
 
 }
 add_filter('manage_edit-laws_columns', 'wpse_80027_manage_columns');
+*/
