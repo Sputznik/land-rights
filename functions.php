@@ -6,7 +6,8 @@ add_action('wp_enqueue_scripts',function(){
 
 include('cpt/cpt.php');
 
-function wpse_80027_manage_columns($columns) {
+
+add_filter('manage_edit-laws_columns', function( $columns ){
 
   $remove_taxonomies = array( 'machine-readable', 'gazetted-copy', 'lang', 'source', 'status', 'nature' );
   foreach( $remove_taxonomies as $tax ){
@@ -14,6 +15,4 @@ function wpse_80027_manage_columns($columns) {
   }
 
   return $columns;
-
-}
-add_filter('manage_edit-laws_columns', 'wpse_80027_manage_columns');
+});
