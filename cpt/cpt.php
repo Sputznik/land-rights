@@ -29,6 +29,10 @@ add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 					'type' => 'text',
 					'text' => 'Citation'
 				),
+				'law_pdf_link'	=> array(
+					'type' => 'text',
+					'text' => 'Attachment'
+				)
 			)
 		)
 	);

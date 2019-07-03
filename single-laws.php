@@ -8,6 +8,16 @@
         <?php get_template_part("partials/content", "law");?>
         <hr>
         <?php the_content('Read the rest of this entry »'); ?>
+
+        <??>
+
+        <?php
+          global $post;
+          $pdf_link = get_post_meta( $post->ID, 'law_pdf_link', true );
+        ?>
+        <?php if( $pdf_link ):?>
+        <a href="<?php _e( $pdf_link );?>" target="_blank" class="btn btn-default button">Download</a>
+        <?php endif;?>
         <!--hr>
         <p class="small"><strong>Spread the word:</strong><p-->
         <?php
