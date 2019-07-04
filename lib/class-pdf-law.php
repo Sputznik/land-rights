@@ -47,7 +47,7 @@ class PDF_LAW extends ORBIT_BASE{
 
     $url = '';
 
-    $filepath = explode( "wp-content\\uploads", $filepath );
+    $filepath = explode( "uploads", $filepath );
     if( is_array( $filepath ) && count( $filepath ) > 1 ){
       $url = $upload_dir[ 'baseurl' ] . $filepath[1];
     }
