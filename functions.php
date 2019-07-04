@@ -5,6 +5,7 @@ add_action('wp_enqueue_scripts',function(){
 });
 
 include('lib/cpt/cpt.php');
+include('lib/class-pdf-only-filter.php');
 
 add_filter( 'orbit_tax_query_params_passing-year', function( $type ){
   $type = 'name';
@@ -31,7 +32,7 @@ function getPDFLink( $post_id ){
     if( $citation ){
       $pdf_file_name = $citation.".pdf";
       $pdf_link = getFileUrl( $pdf_file_name );
-      
+
       if( $pdf_link ){
         update_post_meta( $post_id, 'law_pdf_link', $pdf_link );
       }
