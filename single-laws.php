@@ -13,7 +13,7 @@
 
         <?php
           global $post;
-          $pdf_link = get_post_meta( $post->ID, 'law_pdf_link', true );
+          $pdf_link = getPDFLink( $post->ID );
         ?>
         <?php if( $pdf_link ):?>
         <a href="<?php _e( $pdf_link );?>" target="_blank" class="btn btn-default button">Download</a>
