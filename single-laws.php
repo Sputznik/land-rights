@@ -13,7 +13,10 @@
 
         <?php
           global $post;
-          $pdf_link = getPDFLink( $post->ID );
+
+          $pdf_law = PDF_LAW::getInstance();
+
+          $pdf_link = $pdf_law->getLink( $post->ID );
         ?>
         <?php if( $pdf_link ):?>
         <a href="<?php _e( $pdf_link );?>" target="_blank" class="btn btn-default button">Download</a>
