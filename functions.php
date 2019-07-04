@@ -25,7 +25,7 @@ add_filter('manage_edit-laws_columns', function( $columns ){
 function getPDFLink( $post_id ){
 
   $pdf_link = get_post_meta( $post->ID, 'law_pdf_link', true );
-
+  /*
   if( !$pdf_link ){
     $citation = get_post_meta( $post_id, 'citation', true );
 
@@ -38,7 +38,7 @@ function getPDFLink( $post_id ){
       }
     }
   }
-
+  */
   return $pdf_link;
 }
 
