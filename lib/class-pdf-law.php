@@ -66,6 +66,10 @@ class PDF_LAW extends ORBIT_BASE{
 
         $filepath = $file->getRealPath();
 
+        echo "<pre>";
+        print_r( $filepath );
+        echo "</pre>";
+
         if( preg_match( "/[0-9a-zA-Z -]*".$filename."$/i", $filepath ) ){
 
           $url = $this->convertFilePathToURL( $filepath );
