@@ -22,3 +22,18 @@ add_filter('manage_edit-laws_columns', function( $columns ){
 
   return $columns;
 } );
+
+
+add_action( 'orbit_query_heading', function( $orbit_wp_query ){
+
+  if( isset( $orbit_wp_query->query['post_type'] ) && in_array( 'laws', $orbit_wp_query->query['post_type'] ) && isset( $orbit_wp_query->found_posts ) ){
+
+    $total_posts = $orbit_wp_query->found_posts;
+
+    _e('<h3>' . $total_posts . ' Laws were found</h3>');
+    _e('<hr>');
+  }
+
+
+
+} );
