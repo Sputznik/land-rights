@@ -30,7 +30,7 @@ add_action( 'orbit_query_heading', function( $orbit_wp_query ){
 
     $total_posts = $orbit_wp_query->found_posts;
 
-    _e('<h3>' . $total_posts . ' Laws were found</h3>');
+    _e('<h3>Total ' . $total_posts . ' laws found for your query</h3>');
     _e('<hr>');
   }
 
