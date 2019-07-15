@@ -3,8 +3,8 @@
 $metainfo = array(
   array(
     'icon'      => 'fa fa-map-marker',
-    'label'     => 'Passed by ',
-    'shortcode' => '[orbit_terms taxonomy="authority"] of [orbit_terms taxonomy="state"] in the year <b>[orbit_terms taxonomy="passing-year"]</b>'
+    'label'     => '',
+    'shortcode' => 'Passed by [orbit_terms taxonomy="authority"] of [orbit_terms taxonomy="state"] in the year <b>[orbit_terms taxonomy="passing-year"]</b>'
   ),
   array(
     'icon'      => '',
