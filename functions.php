@@ -23,6 +23,26 @@ add_filter('manage_edit-laws_columns', function( $columns ){
   return $columns;
 } );
 
+function getTermLink( $term ){
+  $orbit_wp = ORBIT_WP::getInstance();
+
+  $url = $orbit_wp->getCurrentURL();
+
+  $get_params = array();
+
+  $params = $_GET;
+
+  $params[ 'tax_'.$term->taxonomy ] = $term->name;
+
+  $query = http_build_query( $params );
+
+  if( $query ){
+    $url .= "?" . $query;
+  }
+
+  return $url;
+}
+
 
 function getListOfTerms( $taxonomy, $posts, $query_atts ){
 
@@ -33,7 +53,8 @@ function getListOfTerms( $taxonomy, $posts, $query_atts ){
   $terms = wp_get_object_terms( $posts,  $taxonomy );
 
   foreach( $terms as $term ){
-    array_push( $terms_list, $term->name . " (" . $orbit_wp->get_term_count_by_query( $term, $query_atts ) . ")" );
+    $text = "<a href='".getTermLink( $term )."'>" . $term->name . " (" . $orbit_wp->get_term_count_by_query( $term, $query_atts ) . ")" . "</a>";
+    array_push( $terms_list, $text );
   }
 
   return $terms_list;
