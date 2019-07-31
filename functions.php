@@ -23,86 +23,13 @@ add_filter('manage_edit-laws_columns', function( $columns ){
   return $columns;
 } );
 
-function getTermLink( $term ){
-  $orbit_wp = ORBIT_WP::getInstance();
+add_filter('term_link', function( $termlink, $term, $taxonomy ){
 
-  $url = $orbit_wp->getCurrentURL();
+	if( $taxonomy == 'state' || $taxonomy == 'purpose' ){
+		$taxonomy .= "[]";
+	}
 
-  $get_params = array();
+	$url = site_url('list-of-laws') . "?tax_" . $taxonomy . "=" . $term->name;
 
-  $params = $_GET;
-
-  $params[ 'tax_'.$term->taxonomy ] = $term->name;
-
-  $query = http_build_query( $params );
-
-  if( $query ){
-    $url .= "?" . $query;
-  }
-
-  return $url;
-}
-
-
-function getListOfTerms( $taxonomy, $posts, $query_atts ){
-
-  $orbit_wp = ORBIT_WP::getInstance();
-
-  $terms_list = array();
-
-  $terms = wp_get_object_terms( $posts,  $taxonomy );
-
-  foreach( $terms as $term ){
-    $text = "<a href='".getTermLink( $term )."'>" . $term->name . " (" . $orbit_wp->get_term_count_by_query( $term, $query_atts ) . ")" . "</a>";
-    array_push( $terms_list, $text );
-  }
-
-  return $terms_list;
-
-}
-
-
-add_action( 'orbit_query_heading', function( $query_atts ){
-
-  $searchFlag = false;
-
-  if( isset( $query_atts['post_type'] ) && in_array( 'laws', $query_atts['post_type'] ) ){
-
-    $orbit_wp = ORBIT_WP::getInstance();
-
-    $posts = $orbit_wp->get_post_ids( $query_atts );
-
-    $total_posts = count( $posts );
-
-    if( isset( $_GET ) && count( $_GET ) ){ $searchFlag = true; }
-
-    $total_count_title = 'Total ' . $total_posts . ' laws available';
-
-    if( $searchFlag ){ $total_count_title = 'Total ' . $total_posts . ' laws found for your query'; }
-
-    _e( '<div class="orbit-query-heading">' );
-
-    _e('<h3>' . $total_count_title . '</h3>');
-
-    if( $searchFlag ){
-      $taxonomies = array(
-        'type'  => 'Type',
-        'state' => 'States'
-      );
-
-      foreach( $taxonomies as $taxonomy_slug => $taxonomy_label ){
-        $terms_list = getListOfTerms( $taxonomy_slug, $posts, $query_atts );
-        if( count( $terms_list ) ){
-          echo "<div class='orbit-terms-count'><b>" . $taxonomy_label . "</b>: " . implode( ', ', $terms_list ) . "</div>";
-        }
-      }
-    }
-
-    _e('<hr>');
-
-    _e( '</div>' );
-  }
-
-
-
-} );
+	return $url;
+}, 10, 3);
