@@ -1,7 +1,7 @@
 <?php
 
 add_action('wp_enqueue_scripts',function(){
-  wp_enqueue_style('landrights-style', get_stylesheet_directory_uri().'/assets/css/land-rights.css', array('sp-core-style'), '1.0.0' );
+  wp_enqueue_style('landrights-style', get_stylesheet_directory_uri().'/assets/css/land-rights.css', array('sp-core-style'), '1.0.1' );
 });
 
 include('lib/cpt/cpt.php');
