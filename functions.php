@@ -2,8 +2,8 @@
 
 add_action('wp_enqueue_scripts',function(){
   wp_enqueue_style('landrights-style', get_stylesheet_directory_uri().'/assets/css/land-rights.css', array('sp-core-style'), '1.0.2' );
-  wp_enqueue_script( 'jquery' );
-  wp_enqueue_script( 'scroll', get_stylesheet_directory_uri().'/assets/js/scroll.js', array( 'jquery' ), '1.0.0', true );
+  // wp_enqueue_script( 'jquery' );
+  // wp_enqueue_script( 'scroll', get_stylesheet_directory_uri().'/assets/js/scroll.js', array( 'jquery' ), '1.0.0', true );
 });
 
 include('lib/cpt/cpt.php');
