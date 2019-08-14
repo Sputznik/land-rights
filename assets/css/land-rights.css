@@ -43,3 +43,32 @@ button[type=submit],
 .orbit-form-group select{
   padding: 10px 15px;
 }
+/* Filter */
+/* .form-box{
+	position: fixed;
+	top: 84px;
+}
+.form-box-results{
+	position : fixed !important;
+	top: 50px;
+	padding: 30px;
+	width: 60%;
+}
+.m-top{
+	margin-top: 100px;
+} */
+.is-fixed .orbit-search-form-box{
+	position: fixed;
+	top: 84px;
+}
+.is-fixed .orbit-results-header{
+	position : fixed !important;
+	top: 50px;
+	padding: 30px;
+	width: 80%;
+	background-color: #ffffff;
+}
+
+.is-fixed .orbit-search-results ul{
+	margin-top: 100px;
+}
