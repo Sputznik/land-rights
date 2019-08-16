@@ -33,3 +33,12 @@ add_filter('term_link', function( $termlink, $term, $taxonomy ){
 
 	return $url;
 }, 10, 3);
+
+
+
+//Exclude pages from WordPress Search
+function remove_pages_from_search() {
+    global $wp_post_types;
+    $wp_post_types['page']->exclude_from_search = true;
+}
+add_action('init', 'remove_pages_from_search');
