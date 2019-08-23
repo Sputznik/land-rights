@@ -1,7 +1,7 @@
 <?php
 
 add_action('wp_enqueue_scripts',function(){
-  wp_enqueue_style('landrights-style', get_stylesheet_directory_uri().'/assets/css/land-rights.css', array('sp-core-style'), '1.0.3' );
+  wp_enqueue_style('landrights-style', get_stylesheet_directory_uri().'/assets/css/land-rights.css', array('sp-core-style'), '1.0.4' );
 });
 
 include('lib/cpt/cpt.php');
@@ -34,7 +34,16 @@ add_filter('term_link', function( $termlink, $term, $taxonomy ){
 	return $url;
 }, 10, 3);
 
+// Checks the state name and gets an image corresponding to the url retrieved
+function getMap(){
+  global $post;
 
+  $url = get_stylesheet_directory_uri().'/assets/maps/';
+  $getTerm = wp_get_post_terms( $post->ID, 'state' );
+  $mapurl = $url.$getTerm[0]->slug.'.jpg';
+
+  return $mapurl;
+}
 
 //Exclude pages from WordPress Search
 function remove_pages_from_search() {
