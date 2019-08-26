@@ -4,27 +4,12 @@ $metainfo = array(
   array(
     'icon'      => '',
     'label'     => '',
-    'shortcode' => '<p class="passed">Passed by <b>[orbit_terms taxonomy="authority"]</b> of <b>[orbit_terms taxonomy="state"]</b> in the year <b>[orbit_terms taxonomy="passing-year"]</b></p>'
+    'shortcode' => '<p class="meta"><b>Source:</b> &nbsp;[orbit_terms taxonomy="source"], <b>Machine Readable:</b> &nbsp;[orbit_terms taxonomy="machine-readable"], <b>Language:</b> &nbsp;[orbit_terms taxonomy="lang"]</p>'
   ),
   array(
     'icon'      => '',
     'label'     => 'Type: &nbsp;',
     'shortcode' => '[orbit_terms taxonomy="type"]'
-  ),
-  array(
-    'icon'      => '',
-    'label'     => 'Source: &nbsp;',
-    'shortcode' => '[orbit_terms taxonomy="source"]'
-  ),
-  array(
-    'icon'      => '',
-    'label'     => 'Machine Readable: &nbsp;',
-    'shortcode' => '[orbit_terms taxonomy="machine-readable"]'
-  ),
-  array(
-    'icon'      => '',
-    'label'     => 'Language: &nbsp;',
-    'shortcode' => '[orbit_terms taxonomy="lang"]'
   ),
   array(
     'icon'      => '',
@@ -47,16 +32,15 @@ $metainfo = array(
     'shortcode' => '[orbit_terms taxonomy="applicable-states"]'
   ),
 );
-
 foreach ($metainfo as $meta) {
   if( $meta['shortcode'] ){
 
     $value = do_shortcode( $meta['shortcode'] );
-
     if( $value ){
       _e("<p class='small'>");
       if( $meta['icon'] ){ _e( "<i class='". $meta['icon'] ."'></i> &nbsp; " ); }
       if( $meta['label'] ){ _e( "<label>". $meta['label'] ."</label>" ); }
+
       echo $value;
       _e("</p>");
     }
