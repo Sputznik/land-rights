@@ -48,7 +48,7 @@ function getMap(){
 //Shortcode gets url of the map-image corresponding to the state
 add_shortcode( 'laws-map', function(){
   $laws_url = getMap();
-  $laws_map_img = '<div class="laws-map" style="background-image:url('.$laws_url.');"></div>';
+  $laws_map_img = '<div class="laws-map"><img src="'.$laws_url.'"/></div>';
   return $laws_map_img;
 });
 
