@@ -38,9 +38,9 @@ add_filter('term_link', function( $termlink, $term, $taxonomy ){
 function getMap(){
   global $post;
 
-  $url = get_stylesheet_directory_uri().'/assets/maps/';
+  $url = get_stylesheet_directory_uri().'/assets/img-map/';
   $getTerm = wp_get_post_terms( $post->ID, 'state' );
-  $mapurl = $url.$getTerm[0]->slug.'.jpg';
+  $mapurl = $url.$getTerm[0]->slug.'.png';
 
   return $mapurl;
 }
