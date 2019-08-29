@@ -29,6 +29,14 @@ add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 					'type' => 'text',
 					'text' => 'Citation'
 				),
+				'related_citation' => array(
+					'type' => 'text',
+					'text' => 'Related Citation'
+				),
+				'passing_year' => array(
+					'type' => 'text',
+					'text' => 'Passing Year'
+				),
 				'law_pdf_link'	=> array(
 					'type' => 'text',
 					'text' => 'Attachment'
