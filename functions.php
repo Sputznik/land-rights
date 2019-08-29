@@ -1,10 +1,12 @@
 <?php
 
 add_action('wp_enqueue_scripts',function(){
-  wp_enqueue_style('landrights-style', get_stylesheet_directory_uri().'/assets/css/land-rights.css', array('sp-core-style'), '1.0.4' );
+  wp_enqueue_style('landrights-style', get_stylesheet_directory_uri().'/assets/css/land-rights.css', array('sp-core-style'), '1.0.5' );
 });
 
 include('lib/cpt/cpt.php');
+include( 'lib/list-related-laws.php' );
+include( 'lib/search-form-shortcode.php' );
 include('lib/class-pdf-only-filter.php');
 include( 'lib/class-pdf-law.php' );
 

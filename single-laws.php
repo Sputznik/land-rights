@@ -19,7 +19,7 @@
           <hr>
           <?php
             global $post;
-
+            $get_post_id = $post->ID;
             $pdf_law = PDF_LAW::getInstance();
             $pdf_link = $pdf_law->getLink( $post->ID );
           ?>
@@ -58,4 +58,10 @@
     </div>
   </div>
 </div>
+<!-- Related Laws Posts-->
+<?php
+  global $post;
+  $related_laws = get_post_meta( $post->ID, 'related_citation', true );
+  if( !empty( $related_laws ) ){ related_laws( $post->ID, $related_laws ); }
+?>
 <?php get_footer();?>
