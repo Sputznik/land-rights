@@ -2,8 +2,8 @@
 function lawsform() {
   ob_start();
   ?>
-    <div class="container">
-              <div class="col-md-12">
+    <!-- <div class="container"> -->
+              <!-- <div class="col-md-12"> -->
                 <form role="search" method="get" id="searchform" action="<?php _e( home_url( '/' ) ); ?>">
                   <div class="input-group add-on">
                     <input class="form-control" placeholder="Search for laws and publications" value="<?php _e( get_search_query() ); ?>" name="s" id="s" type="text"/>
@@ -12,8 +12,8 @@ function lawsform() {
                     </div>
                   </div>
                 </form>
-              </div>
-            </div>';
+              <!-- </div> -->
+            <!-- </div> -->
     <?php
     return ob_get_clean();
 }
