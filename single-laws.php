@@ -1,4 +1,19 @@
-<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0];?>
+<?php
+
+  global $post;
+
+  /*
+  * FORCE ALL USERS TO BE LOGGED IN TO VIEW THE SINGLE LAW
+  */
+  if( !is_user_logged_in() ){
+    $redirect = get_permalink( $post );
+    wp_redirect( wp_login_url( $redirect ) );
+    exit();
+  }
+
+
+  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0];
+?>
 <?php get_header();?>
 <div class="single-laws-bg">
   <div class="container" style="padding-top: 80px; padding-bottom: 80px;">
