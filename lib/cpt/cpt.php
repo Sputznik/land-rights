@@ -47,6 +47,24 @@ add_filter( 'orbit_meta_box_vars', function( $meta_box ){
 	return $meta_box;
 });
 
+
+//Creates a meta field for citation information
+add_filter( 'orbit_meta_box_vars', function( $meta_box ){
+	$meta_box['post'] = array(
+		array(
+			'id'			=> 'laws-post-meta-fields',
+			'title'		=> 'Additional Fields',
+			'fields'	=> array(
+				'law_pdf_link'	=> array(
+					'type' => 'text',
+					'text' => 'Attachment'
+				)
+			)
+		)
+	);
+	return $meta_box;
+});
+
 /* PUSH INTO THE GLOBAL VARS OF ORBIT TAXNOMIES */
 add_filter( 'orbit_taxonomy_vars', function( $orbit_tax ){
 
